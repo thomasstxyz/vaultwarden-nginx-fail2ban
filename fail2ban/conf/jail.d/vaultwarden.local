@@ -1,0 +1,18 @@
+[vaultwarden]
+enabled = true
+port = 80,443,8081
+filter = vaultwarden
+# banaction = %(banaction_allports)s
+action = iptables-allports[name=vaultwarden, chain=FORWARD]
+logpath = /var/log/vw-logs/vaultwarden.log
+maxretry = 3
+bantime = 14400
+findtime = 14400
+
+# "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not                          
+# ban a host which matches an address in this list. Several addresses can be                             
+# defined using space separator.
+# This will ignore connection coming from common private networks.
+# Note that local connections can come from other than just 127.0.0.1, so
+# this needs CIDR range too.
+ignoreip = 127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
