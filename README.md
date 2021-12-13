@@ -48,7 +48,7 @@ First get the container ID with `docker ps`.
 Then, execute this command.
 
 ```
-docker exec -t <CONTAINER> fail2ban-client set <JAIL> banip <IP>
+docker exec -t <CONTAINER> fail2ban-client set <JAIL> unbanip <IP>
 ```
 
 E.g. 
